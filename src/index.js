@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import CounterContext from './contexts/counter';
 import Counter from './components/counter'
+import Container from '@material-ui/core/Container';
 
 class App extends React.Component{
   constructor(props){
@@ -13,7 +14,9 @@ class App extends React.Component{
     this.state = {
       counter: 0,
       increment: this.increment,
-      decrement: this.decrement
+      decrement: this.decrement,
+      increment10: this.increment10,
+      decrement10: this.decrement10
     }
   }
 
@@ -36,8 +39,10 @@ class App extends React.Component{
     return (
       // ここからがキモ
       <CounterContext.Provider value={this.state}>
+        <Container maxWidth="sm">
         {/* CounterContext.Providerで渡された値を下のコンポーネントで使用できる */}
         <Counter/>
+        </Container>
       </CounterContext.Provider>
 
     );
